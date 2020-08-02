@@ -1,0 +1,20 @@
+<div class="plane">
+    <div class="cockpit"></div>
+    <div class="exit exit--front fuselage"></div>
+    <ol class="cabin fuselage">
+        <ng-container *ngFor="let seatRow of seatRows">
+            <li class="row row--{{seatRow.number}}">
+                <ol class="seats" type="{{seatRow.type}}">
+                    <ng-container *ngFor="let seatData of seatRow.seats">
+                        <li class="seat">
+                            <input [checked]="seatData.selected" type="checkbox" id="{{seatData.number}}" (change)="selectSeatListner(seatData)" >
+                            <label for="{{seatData.number}}">{{seatData.number}}</label>
+                        </li>
+                    </ng-container>
+                </ol>
+            </li>
+        </ng-container>
+    </ol>
+<div class="exit exit--back fuselage"></div>
+</div>
+
